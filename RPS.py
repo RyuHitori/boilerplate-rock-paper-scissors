@@ -3,7 +3,7 @@
 def player(prev_play, opponent_history=[]):
     opponent_history.append(prev_play)
 
-    guess = "R"
+    guess = "P"
     if len(opponent_history) > 2:
         guess = opponent_history[-2]
 
