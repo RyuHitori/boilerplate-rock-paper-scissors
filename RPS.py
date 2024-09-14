@@ -3,7 +3,7 @@
 def player(prev_play, opponent_history=[]):
 
     plays = {}
-    responses = {'R':'P', 'S':'R', 'P':'S'}
+    responses = {'P': 'S', 'R': 'P', 'S': 'R'}
 
     if prev_play == "":
         prev_play = 'R'
@@ -15,19 +15,19 @@ def player(prev_play, opponent_history=[]):
         prevPlays = "".join(opponent_history[-5:])
         plays[prevPlays] = plays.get(prevPlays, 0) + 1
 
-    plays_prediction = []
+        plays_prediction = []
 
-    for i in ['R','P','S']:
-        prev4Plays = "".join(opponent_history[-4:] + [i])
-        plays_prediction.append(prev4Plays)
+        for i in ['R','P','S']:
+            prev4Plays = "".join(opponent_history[-4:] + [i])
+            plays_prediction.append(prev4Plays)
 
-    new_plays = {}
+        new_plays = {}
 
-    for i in plays_prediction:
-        if i in plays:
-            new_plays[i] = plays[i]
+        for i in plays_prediction:
+            if i in plays:
+                new_plays[i] = plays[i]
 
-    if new_plays:
-        nextplay = max(new_plays, key=new_plays.get)[-1:]
+        if new_plays:
+            nextplay = max(new_plays, key=new_plays.get)[-1:]
 
     return responses[nextplay]
