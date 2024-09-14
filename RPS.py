@@ -5,10 +5,10 @@ def player(prev_play, opponent_history=[], plays = {}):
     response = {'P': 'S', 'R': 'P', 'S': 'R'}
 
     if prev_play == "":
-        prev_play = 'R'
+        prev_play = 'S'
 
     opponent_history.append(prev_play)
-    nextplay = 'P'
+    nextplay = 'S'
 
     if len(opponent_history) > 4:
         prevPlays = "".join(opponent_history[-5:])
@@ -17,8 +17,8 @@ def player(prev_play, opponent_history=[], plays = {}):
         plays_prediction = []
 
         for i in ['R','P','S']:
-            prev4Plays = "".join(opponent_history[-4:] + [i])
-            plays_prediction.append(prev4Plays)
+            prev_plays = "".join(opponent_history[-4:] + [i])
+            plays_prediction.append(prev_plays)
 
         new_plays = {}
 
