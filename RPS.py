@@ -24,7 +24,7 @@ def player(prev_play, opponent_history=[]):
     new_plays = {}
 
     for i in plays_prediction:
-        if play in plays:
+        if i in plays:
             new_plays[i] = plays[i]
 
     if new_plays:
