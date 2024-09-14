@@ -5,11 +5,11 @@ def player(prev_play, opponent_history=[]):
     plays = {}
     responses = {'P': 'S', 'R': 'P', 'S': 'R'}
 
-    if prev_play == "":
+    if not prev_play:
         prev_play = 'R'
 
     opponent_history.append(prev_play)
-    nextplay = 'S'
+    nextplay = 'P'
 
     if len(opponent_history) > 4:
         prevPlays = "".join(opponent_history[-5:])
